@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Scanner from './Page/scanner';
+import Scanner from './Page/Scanner';
 import axios from 'axios';
 import {welcomeMessage,serverURL} from "./lib/const";
 
