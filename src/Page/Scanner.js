@@ -14,11 +14,8 @@ export default class Scanner extends Component{
 		this.state = {result: ""};
 	}
 	
-	handleError(){
-		
-	}
-	
 	handleScan(result){
+		console.log("result", result);
 		if(result){
 			this.setState({result});
 		}

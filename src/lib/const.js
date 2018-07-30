@@ -1,3 +1,3 @@
-const welcomeMessage = "WELCOME TO JM & PEGEEN WEDDING";
+const welcomeMessage = "WELCOME TO OUR WEDDING";
 
 export {welcomeMessage};
