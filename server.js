@@ -7,7 +7,7 @@ const Promise = require('bluebird');
 const guestListPath = './static/guestList.csv';
 
 const app = express();
-const port = 80;
+const port = 8080;
 
 Promise.promisifyAll(fs);
 
