@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Scanner from './Page/Scanner';
 import axios from 'axios';
-import {welcomeMessage,serverURL} from "./lib/const";
+import {welcomeMessage} from "./lib/const";
 
 export default class Page extends Component{
 	constructor(props){
@@ -15,7 +15,9 @@ export default class Page extends Component{
 	}
 
 	getGuestList(){
-		axios.get(serverURL + '/api/getGuestList').then((response)=>{
+		let host = window.location.host;
+		let protocol = window.location.protocol;
+		axios.get(protocol + "//" + host + '/api/getGuestList').then((response)=>{
 			console.log("response", response);
 			if(response.data.success){
 				this.setState({'guestList':response.data.guestList});
