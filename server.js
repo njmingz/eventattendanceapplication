@@ -4,7 +4,7 @@ const moment = require('moment');
 const Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const Datastore = require('@google-cloud/datastore');
-const production = false;
+const production = true;
 
 const app = express();
 app.enable('trust proxy');
