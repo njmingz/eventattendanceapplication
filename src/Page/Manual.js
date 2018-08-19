@@ -14,16 +14,17 @@ export default class Manual extends Component{
         this.handleColleague = this.handleColleague.bind(this);
         this.handleChange = this.handleChange.bind(this);
         
-        this.state = {guestList:[], sides:"", relationship:"", name:""};
+        this.state = {guestList:[], side:"", relationship:"", name:""};
     }
 
     componentDidMount(){
         axios.get('/api/getAllGuest').then((response)=>{
-            if(response.success){
-                this.setState({guestList:guestList});
+            //console.log("response",response);
+            if(response.data.success){
+                this.setState({guestList:response.data.guestList});
             }
             else{
-                console.log("ERROR. LOADING GUEST LIST.");
+                //console.log("ERROR. LOADING GUEST LIST.");
                 alert("ERROR. LOADING GUEST LIST.");
             }
         }).catch((err)=>{
@@ -34,13 +35,13 @@ export default class Manual extends Component{
     }
 
     handleReset(){
-        this.setState({sides:"", relationship:"", name:""});
+        this.setState({side:"", relationship:"", name:""});
     }
     handleGroom(){
-        this.setState({sides:"groom"});
+        this.setState({side:"groom"});
     }
     handleBride(){
-        this.setState({sides:"bride"});
+        this.setState({side:"bride"});
     }
     handleFamily(){
         this.setState({relationship:"family"});
@@ -52,7 +53,7 @@ export default class Manual extends Component{
         this.setState({relationship:"colleague"});
     }
     handleChange(selectedOption){
-        let url = "/display/"+selectedOption.uuid;
+        let url = "/display/"+selectedOption.value;
         this.props.history.push(url);
     }
 
@@ -67,7 +68,7 @@ export default class Manual extends Component{
 			)
         }
         else{
-            if(this.state.sides == ""){
+            if(this.state.side == ""){
                 return(
                     <div className="manual">
                         <div className="buttonContainer">
@@ -92,12 +93,13 @@ export default class Manual extends Component{
                     );
                 }
                 else{
+                    console.log(this.state.guestList[this.state.side][this.state.relationship]);
                     return(
                         <div className="manual">
                             <Select 
                                 className="selectGuest"
-                                options={[{label:"ABC",value:"ABC",uuid:"abcdefg-1234567-987654-123"},{label:"BCD", value:"BCD",uuid:"123"}]}
-                                //options={this.state.guestList[this.state.sides][this.state.relationship]}
+                                //options={[{label:"ABC",value:"ABC",uuid:"abcdefg-1234567-987654-123"},{label:"BCD", value:"BCD",uuid:"123"}]}
+                                options={this.state.guestList[this.state.side][this.state.relationship]}
                                 onChange={this.handleChange}
                                 placeholder="Enter Guest Name"
                                 isClearable={true}

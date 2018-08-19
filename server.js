@@ -4,7 +4,7 @@ const moment = require('moment');
 const Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const Datastore = require('@google-cloud/datastore');
-const production = true;
+const production = false;
 
 const app = express();
 app.enable('trust proxy');
@@ -56,7 +56,7 @@ const getAllGuest = () =>{
                     }
                 }
             }
-            console.log("groom_colleague",groom_colleague)
+            //console.log("groom_colleague",groom_colleague)
             let entities ={bride:{}, groom:{}};
             entities["bride"]={
                 family:bride_family,
