@@ -16,7 +16,8 @@
    ],
    output: {
      filename: '[name].bundle.js',
-     path: path.resolve(__dirname, 'dist')
+		 path: path.resolve(__dirname, 'dist'),
+		 publicPath: '/'
    },
    module:{
 	   rules:[
@@ -40,7 +41,16 @@
 							outputPath: 'fonts/'
 					}
 				}]
-			}
+			},
+			{
+				test: /\.(jpg|png)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "[path][name].[hash].[ext]",
+					},
+				},
+			},
 	   ]
    }
  };
