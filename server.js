@@ -162,8 +162,9 @@ app.post('/api/postUpdateGuestArrival', (req, res)=>{
     });
 });
 
-/*app.get('/*', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-})*/
+app.get('*', (req, res) => {
+
+    res.sendFile(__dirname + '/dist/index.html');
+})
 
 app.listen(port, () => console.log("Listening on port, " + port + "."));
