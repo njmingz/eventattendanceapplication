@@ -25,32 +25,39 @@ const getAllGuest = () =>{
     return new Promise((resolve, reject)=>{
         const query = datastore.createQuery('Guest').order('tableNumber');
         return datastore.runQuery(query).then((results)=>{
-            let bride_family, bride_friend, bride_colleague, groom_family, groom_friend, groom_colleague = [];
+            //console.log("results", results);
+            let bride_family =[], bride_friend =[], bride_colleague =[];
+            let groom_family =[], groom_friend =[], groom_colleague =[];
             for(let i=0; i< results[0].length; i++){
-                if(val.sides == "bride"){
-                    if(val.relationship == "family"){
-                        bride_family.push(val);
+                let val =  results[0][i];
+                //console.log("val",val);
+                if(val.side.toLowerCase() == "bride"){
+                    //console.log("val_side_bride_relationship",val.relationship.toLowerCase());
+                    if(val.relationship.toLowerCase() == "family"){
+                        bride_family.push({label:val.guestName,value:val.UUID});
                     }
-                    else if(val.relationship =="friend"){
-                        bride_friend.push(val);
+                    else if(val.relationship.toLowerCase() =="friend"){
+                        bride_friend.push({label:val.guestName,value:val.UUID});
                     }
                     else{
-                        bride_colleague.push(val);
+                        bride_colleague.push({label:val.guestName,value:val.UUID});
                     }
                 }
                 else{
-                    if(val.relationship == "family"){
-                        groom_family.push(val);
+                    //console.log("val_side_groom_relationship",val.relationship.toLowerCase());
+                    if(val.relationship.toLowerCase() == "family"){
+                        groom_family.push({label:val.guestName,value:val.UUID});
                     }
-                    else if(val.relationship =="friend"){
-                        groom_friend.push(val);
+                    else if(val.relationship.toLowerCase() == "friend"){
+                        groom_friend.push({label:val.guestName,value:val.UUID});
                     }
                     else{
-                        groom_colleague.push(val);
+                        groom_colleague.push({label:val.guestName,value:val.UUID});
                     }
                 }
             }
-            let entities ={};
+            console.log("groom_colleague",groom_colleague)
+            let entities ={bride:{}, groom:{}};
             entities["bride"]={
                 family:bride_family,
                 friend:bride_friend,
