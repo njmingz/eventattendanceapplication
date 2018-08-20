@@ -137,7 +137,6 @@ const updateGuestArrival = (uuid) =>{
 }
 
 app.use(bodyParser.json());
-app.use(express.static('dist'));
 
 app.get('/api/getAllGuest',(req, res)=>{
     console.log("["+dateNow()+"]API ENTER. /api/getAllGuest.");
@@ -163,7 +162,6 @@ app.post('/api/postUpdateGuestArrival', (req, res)=>{
 });
 
 app.get('*', (req, res) => {
-
     res.sendFile(__dirname + '/dist/index.html');
 })
 
