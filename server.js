@@ -160,8 +160,9 @@ app.post('/api/postUpdateGuestArrival', (req, res)=>{
         res.send({"success":false});
     });
 });
-
-app.get('*', (req, res) => {
+app.use('/',express.static('dist'));
+app.get('/*', (req, res) => {
+    console.log("dirname", __dirname);
     res.sendFile(__dirname + '/dist/index.html');
 })
 
