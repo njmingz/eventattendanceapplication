@@ -105,6 +105,7 @@ export default class Manual extends Component{
                                 isClearable={true}
                                 isSearchable={true}
                                 />
+                            <a className="clear link red" href="javascript:void(0)" onClick={this.handleReset}>CLEAR</a>
                         </div>
                     );
                 }
