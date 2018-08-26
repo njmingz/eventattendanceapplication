@@ -49,7 +49,7 @@ export default class Scanner extends Component{
 					style = {styles}
 					className = "qrScanner"/>
 				</div>
-				<pre class="linkText">No QR Code? <a class="link" href="javascript:void(0)" onClick={this.handleManual}>Click Here.</a></pre>
+				<pre className="linkText">No QR Code? <a className="link" href="javascript:void(0)" onClick={this.handleManual}>Click Here.</a></pre>
 			</div>
 		)
 	}

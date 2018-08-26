@@ -36,7 +36,7 @@ body {
 .background{
     display:block;
     z-index:10;
-    opacity:0.85;
+    opacity:0.75;
 }
 
 .img-responsive{
@@ -90,10 +90,14 @@ body {
 .welcomeLabel{
     text-align: center;
     margin-top:50px;
+    font-size:2.5em;
 }
 .name{
     text-align: center;
-    font-size:3em;
+    font-size:2.5em;
+    white-space: pre-wrap;
+    font-family:"Helvetica";
+    font-weight: normal;
 }
 
 .loading{
@@ -135,9 +139,9 @@ body {
     }
     .welcomeLabel{
         text-align: left;
-        margin-top:2.5em;
-        margin-left:2em;
-        font-size:2em;
+        margin-top:2em;
+        margin-left:1em;
+        font-size:2.5em;
     }
     .name{
         margin-top:15px;
@@ -165,9 +169,9 @@ body {
     }
     .welcomeLabel{
         text-align: left;
-        margin-top:2.5em;
-        margin-left:2em;
-        font-size:2em;
+        margin-top:2em;
+        margin-left:1em;
+        font-size:2.5em;
     }
     .name{
         margin-top:15px;
