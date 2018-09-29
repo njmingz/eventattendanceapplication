@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Select from 'react-select';
+import {tify, sify} from 'chinese-conv';
 
 export default class Manual extends Component{
 	constructor(props){
@@ -105,8 +106,16 @@ export default class Manual extends Component{
                                 isClearable={true}
                                 isSearchable={true}
                                 filterOption={(obj, str)=>{
-                                    console.log("obj",obj);
-                                    console.log("str",str);
+                                    console.log("simplified",obj.label)
+                                    if(obj.label.indexOf(str) != -1){
+                                        return true;
+                                    }
+                                    else if(sify(obj.label).indexOf(str) != -1){
+                                        return true;
+                                    }
+                                    else{
+                                        return false;
+                                    }
                                 }}
                                 />
                             <a className="clear link red" href="javascript:void(0)" onClick={this.handleReset}>CLEAR</a>
