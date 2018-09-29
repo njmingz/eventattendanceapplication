@@ -33,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "chinese-conv": "^1.0.1",
     "clean-webpack-plugin": "^0.1.19",
     "crypto": "^1.0.1",
     "css-loader": "^1.0.0",

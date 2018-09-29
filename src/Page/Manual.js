@@ -104,6 +104,10 @@ export default class Manual extends Component{
                                 placeholder="Enter Guest Name"
                                 isClearable={true}
                                 isSearchable={true}
+                                filterOption={(obj, str)=>{
+                                    console.log("obj",obj);
+                                    console.log("str",str);
+                                }}
                                 />
                             <a className="clear link red" href="javascript:void(0)" onClick={this.handleReset}>CLEAR</a>
                         </div>
