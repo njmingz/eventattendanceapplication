@@ -1,5 +1,3 @@
 node_modules/
 secret/
 dist/
-dist/app.bundle.js.map
-dist/app.bundle.js
