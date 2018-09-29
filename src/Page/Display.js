@@ -44,7 +44,7 @@ export default class Display extends Component{
 			return(
 				<div>
 					<pre className="guestText welcomeLabel">Welcome</pre>
-					<pre className="guestText name">{this.state.guest[0].guestName}</pre>
+					<pre className="guestText name">{this.state.guest[0].guestName.split('(')[0]}</pre>
 					<span className="tableLabel">TABLE NO.</span>
 					<span className="tableNumber">{this.state.guest[0].tableNumber}</span>
 				</div>
