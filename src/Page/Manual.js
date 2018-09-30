@@ -99,14 +99,12 @@ export default class Manual extends Component{
                         <div className="manual">
                             <Select 
                                 className="selectGuest"
-                                //options={[{label:"ABC",value:"ABC",uuid:"abcdefg-1234567-987654-123"},{label:"BCD", value:"BCD",uuid:"123"}]}
                                 options={this.state.guestList[this.state.side][this.state.relationship]}
                                 onChange={this.handleChange}
                                 placeholder="Enter Guest Name"
                                 isClearable={true}
                                 isSearchable={true}
                                 filterOption={(obj, str)=>{
-                                    console.log("simplified",obj.label)
                                     if(obj.label.indexOf(str) != -1){
                                         return true;
                                     }
