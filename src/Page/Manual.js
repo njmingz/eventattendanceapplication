@@ -105,7 +105,7 @@ export default class Manual extends Component{
                                 isClearable={true}
                                 isSearchable={true}
                                 filterOption={(obj, str)=>{
-                                    if(obj.label.indexOf(str) != -1){
+                                    if(obj.label.toLowerCase().indexOf(str.toLowerCase()) != -1){
                                         return true;
                                     }
                                     else if(sify(obj.label).indexOf(str) != -1){
